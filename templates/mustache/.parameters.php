@@ -1,6 +1,6 @@
 <?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
-$set = array(
+$fields = array(
 	'test' => 'Тестовое поле',
 );
 
@@ -11,9 +11,9 @@ $arTemplateParameters = [
 	]
 ];
 
-foreach ($set as $k => $val) {
+foreach ($fields as $key => $field) {
 	$arTemplateParameters[$k] = array(
-		'NAME' => $val,
+		'NAME' => $field,
 		'COLS' => 35,
 		'ROWS' => 3
 	);
