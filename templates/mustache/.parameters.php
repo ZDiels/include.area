@@ -1,20 +1,24 @@
 <?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
-$fields = array(
-	'test' => 'Тестовое поле',
-);
 
 $arTemplateParameters = [
 	'COMPONENT' => [
 		'NAME' => 'Компонент',
 		'TYPE' => 'string'
+	],
+	'list' => [
+		'NAME' => 'Список полей, через запятую',
+		'REFRESH' => "Y"
 	]
 ];
 
-foreach ($fields as $key => $field) {
-	$arTemplateParameters[$k] = array(
-		'NAME' => $field,
-		'COLS' => 35,
-		'ROWS' => 3
-	);
+if (!empty($arCurrentValues['list'])) {
+	$list = explode(',', str_replace(', ', ',', $arCurrentValues['list']));
+	if (count($list) > 0) {
+		foreach($list as $key => $item) {
+			$arTemplateParameters[$item] = [
+				'NAME' => $item,
+			];
+		}
+	}
 }
